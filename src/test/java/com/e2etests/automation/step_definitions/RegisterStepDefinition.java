@@ -18,8 +18,9 @@ public class RegisterStepDefinition {
 	}
 
 	@Given("je me redirige vers la page register")
+	
 	public void jeMeRedirigeVersLaPageRegister() {
-		registerPage.goToUrl();
+		registerPage.clickOnResgister();
 	}
 
 	@When("je saisie le FirstName {string}")

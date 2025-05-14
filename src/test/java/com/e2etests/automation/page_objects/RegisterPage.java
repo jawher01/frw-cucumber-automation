@@ -54,15 +54,25 @@ public class RegisterPage {
 	@FindBy(how = How.NAME, using = "submit")
 	public static WebElement BtnEnvoyer;
 	
+	@FindBy(how = How.CSS, using = "a[href='register.php']")
+	public static WebElement linkResgister; 
+	
 	public RegisterPage() {
 		PageFactory.initElements(Setup.getDriver(), this);
 		this.configFileReader = new ConfigFileReader();
 	}
 
 	/** Create methods **/
-	public void goToUrl() {
-		Setup.getDriver().get(configFileReader.getProperties("register.url"));
-	}
+	
+	public void clickOnResgister() {
+		
+		linkResgister.click
+		();
+			} 
+	
+	//public void goToUrl() {
+		//Setup.getDriver().get(configFileReader.getProperties("register.url"));
+	//}
 
 	public void fillFirstName(String name) {
 		firstName.sendKeys(name);
@@ -127,5 +137,7 @@ public class RegisterPage {
 	public void clickButtonSub () {
 		BtnEnvoyer.click();
 	}
+	
+
 
 }
