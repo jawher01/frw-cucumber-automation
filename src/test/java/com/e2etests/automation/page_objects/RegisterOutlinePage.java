@@ -6,15 +6,17 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.e2etests.automation.utils.ConfigFileReader;
 import com.e2etests.automation.utils.Setup;
 
-import com.e2etests.automation.utils.ConfigFileReader;
-
-public class RegisterPage {
+public class RegisterOutlinePage {
 
 	private ConfigFileReader configFileReader;
-
+	
 	/** @FindBy **/
+	@FindBy(how = How.XPATH, using = "/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]/a")
+	public static WebElement register;
+	
 	@FindBy(how = How.NAME, using = "firstName")
 	public static WebElement firstName;
 
@@ -54,16 +56,17 @@ public class RegisterPage {
 	@FindBy(how = How.NAME, using = "submit")
 	public static WebElement BtnEnvoyer;
 	
-	public RegisterPage() {
+	//Contractor
+	public RegisterOutlinePage() {
 		PageFactory.initElements(Setup.getDriver(), this);
 		this.configFileReader = new ConfigFileReader();
 	}
-
+	
 	/** Create methods **/
-	public void goToUrl() {
-		Setup.getDriver().get(configFileReader.getProperties("register.url"));
+	public void ClickRegister() {
+		register.click();
 	}
-
+	
 	public void fillFirstName(String name) {
 		firstName.sendKeys(name);
 	}
@@ -128,4 +131,9 @@ public class RegisterPage {
 		BtnEnvoyer.click();
 	}
 
+	
+	
+	
+	
+	
 }

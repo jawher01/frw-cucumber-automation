@@ -1,3 +1,4 @@
+
 package com.e2etests.automation.step_definitions;
 
 import org.junit.Assert;
@@ -18,9 +19,8 @@ public class RegisterStepDefinition {
 	}
 
 	@Given("je me redirige vers la page register")
-	
 	public void jeMeRedirigeVersLaPageRegister() {
-		registerPage.clickOnResgister();
+		registerPage.goToUrl();
 	}
 
 	@When("je saisie le FirstName {string}")
